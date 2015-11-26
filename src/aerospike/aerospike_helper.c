@@ -54,16 +54,14 @@ as_log_level php_log_level_set = __AEROSPIKE_PHP_CLIENT_LOG_LEVEL__;
 extern bool
 aerospike_helper_log_callback(as_log_level level, const char * func TSRMLS_DC, const char * file, uint32_t line, const char * fmt, ...)
 {
-    if (level & 0x08) {
-        char msg[1024] = {0};
-        va_list ap;
+    char msg[1024] = {0};
+    va_list ap;
 
-        va_start(ap, fmt);
-        vsnprintf(msg, 1024, fmt, ap);
-        msg[1023] = '\0';
-        va_end(ap);
-        fprintf(stderr, "PHP EXTn: level %d func %s file %s line %d msg %s \n", level, func, file, line, msg);
-    }
+    va_start(ap, fmt);
+    vsnprintf(msg, 1024, fmt, ap);
+    msg[1023] = '\0';
+    va_end(ap);
+    fprintf(stderr, "PHP EXTn: level %d func %s file %s line %d msg %s \n", level, func, file, line, msg);
 
     if (is_callback_registered) { 
         int16_t   iter = 0;
