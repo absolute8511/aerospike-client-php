@@ -76,7 +76,7 @@
  * SPECIFIED, ELSE RETURN DEFAULTS.
  *******************************************************************************************************
  */
-#define SHM_USE_PHP_INI INI_BOOL("aerospike.shm.use") ? INI_BOOL("aerospike.shm.use") : false
+#define SHM_USE_PHP_INI INI_INT("aerospike.shm.use") ? INI_INT("aerospike.shm.use") : 0
 #define SHM_MAX_NODES_PHP_INI INI_INT("aerospike.shm.max_nodes") ? INI_INT("aerospike.shm.max_nodes") : 16
 #define SHM_MAX_NAMESPACES_PHP_INI INI_INT("aerospike.shm.max_namespaces") ? INI_INT("aerospike.shm.max_namespaces") : 8
 #define SHM_TAKEOVER_THRESHOLD_SEC_PHP_INI INI_INT("aerospike.shm.takeover_threshold_sec") ? INI_INT("aerospike.shm.takeover_threshold_sec") : 30

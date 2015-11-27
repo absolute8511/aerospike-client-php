@@ -516,7 +516,7 @@ exit:
 
 extern void
 aerospike_helper_check_and_configure_shm(as_config *config_p TSRMLS_DC) {
-    if (SHM_USE_PHP_INI) {
+    if (SHM_USE_PHP_INI == 1) {
         config_p->use_shm = true;
         config_p->shm_max_nodes = (uint32_t) SHM_MAX_NODES_PHP_INI;
         config_p->shm_max_namespaces = (uint32_t) SHM_MAX_NAMESPACES_PHP_INI;

@@ -578,6 +578,8 @@ PHP_METHOD(Aerospike, __construct)
 
     as_log_set_callback((as_log_callback)&aerospike_helper_log_callback);
 
+    fprintf(stderr, "connect with config, %d, %d", aerospike_obj_p->as_ref_p->as_p->config.use_shm,
+        aerospike_obj_p->as_ref_p->as_p->config.tender_interval);
     aerospike_obj_p->as_ref_p->as_p->config.use_shm = true;
     aerospike_obj_p->as_ref_p->as_p->config.shm_max_nodes = 64;
     aerospike_obj_p->as_ref_p->as_p->config.shm_max_namespaces = 32;
